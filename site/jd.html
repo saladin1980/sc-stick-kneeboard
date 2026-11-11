@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Merge Joystick Diagrams exports into one card per stick, with every Star Citizen mode on each button.">
+<title>Stick kneeboard: merge Joystick Diagrams exports</title>
+<link rel="stylesheet" href="css/kneeboard.css">
+</head>
+<body>
+<header class="placard">
+  <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+  <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+  <h1>Stick kneeboard</h1>
+  <p>One card per stick, with every Star Citizen mode on each button. Made from your Joystick Diagrams exports.</p>
+</header>
+
+<main class="deck">
+  <section class="bay-col" aria-label="Load your exports">
+    <div class="bay" id="bay">
+      <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+      <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+      <span class="lamp" aria-hidden="true"></span>
+      <p class="bay-title">Drop your exports here</p>
+      <p class="bay-help" id="bay-help">All the SVG files Joystick Diagrams wrote, every mode at once. PNGs can come along too; they're skipped.</p>
+      <button type="button" class="btn btn-primary" id="choose" aria-describedby="bay-help">Choose files</button>
+      <input type="file" id="file" accept=".svg,image/svg+xml,.png" multiple hidden>
+    </div>
+
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+    <div class="manifest" id="manifest"></div>
+
+    <p class="privacy">Your files stay in this browser tab. The page makes no network requests and uploads nothing.</p>
+    <button type="button" class="btn btn-quiet" id="clear" hidden>Clear the board</button>
+  </section>
+
+  <section class="board" id="board" aria-label="Kneeboard cards">
+    <article class="card card-empty" id="empty">
+      <div class="clipped">
+      <span class="clip" aria-hidden="true"></span>
+      <div class="paper">
+        <h2>Three steps</h2>
+        <ol>
+          <li>In Joystick Diagrams, export your Star Citizen profile. It writes one SVG per stick for each mode.</li>
+          <li>Drop all of those SVG files on the bay, or choose them.</li>
+          <li>Download a card for each stick: SVG stays sharp when zoomed, PNG is ready for Discord.</li>
+        </ol>
+        <p class="note">Button names are mapped for the VKB Gladiator templates. Other sticks still merge; their buttons show as slot positions.</p>
+      </div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Built on Joystick Diagrams exports (github.com/Rexeh/joystick-diagrams, GPL-2.0). Not affiliated with Cloud Imperium Games.</p>
+  <p class="tip"><a href="https://www.buymeacoffee.com/mbtech" target="_blank" rel="noopener noreferrer">Support the tool</a></p>
+</footer>
+
+<script src="js/slotmap.js"></script>
+<script src="js/core.js"></script>
+<script src="js/jd-app.js"></script>
+</body>
+</html>

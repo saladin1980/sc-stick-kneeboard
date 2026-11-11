@@ -1,0 +1,38 @@
+Stick kneeboard: Star Citizen keybinds on your stick and keyboard
+Copyright (C) 2026 MB Technical Solutions (mb-tech.me)
+
+The code in site/ and tool/ is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License version 2, as published by the Free Software Foundation
+(see LICENSE). It is distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for details.
+
+Why GPL-2.0: site/js/slotmap.js (stick slot coordinates) and the Joystick Diagrams merge (jd.html)
+derive from Joystick Diagrams, which is GPL-2.0.
+
+Credits and third-party material
+--------------------------------
+Joystick Diagrams
+  github.com/Rexeh/joystick-diagrams (GPL-2.0). The VKB Gladiator NXT template slot positions in
+  site/js/slotmap.js come from its templates. The oracle tests also use data from its Star Citizen
+  plugin (github.com/Rexeh/joystick-diagrams-star-citizen-plugin, GPL-2.0); those tests are not part
+  of the published site.
+
+VKB Gladiator fillable templates
+  VKB Gladiator fillable templates by VKB (vkbgaming.com), template design by UntoldForce (v1.0).
+  Free to use per VKB (confirmed 2026-11-11). The template pages in site/art/vkb/ are used
+  unmodified apart from the bind text this tool writes over them; the VKB Discord link and the
+  design credit printed on the templates are part of the art and stay on every card.
+
+Star Citizen
+  Control names and default bindings are read from the game's own data files.
+  This is an unofficial fan tool. It is not affiliated with, endorsed by, or sponsored by
+  Cloud Imperium Games. Star Citizen is a trademark of Cloud Imperium Rights LLC.
+  VKB is not affiliated with this tool either.
+
+Build-time tools (not part of the published site)
+  scdatatools (MIT) reads the game's Data.p4k; PyMuPDF (AGPL-3.0) reads the VKB template PDFs.
+  Neither is distributed with the site.
+
+Our own work
+  The US ANSI keyboard drawing, the card layouts and the page design are original to this project
+  and covered by the GPL-2.0 licence above.

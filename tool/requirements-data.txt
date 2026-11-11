@@ -1,0 +1,55 @@
+# Only for build_controls_data.py (the offline data build). merge_diagrams.py and the rest of tool\ are stdlib.
+# Install WITH --no-deps:
+#   python -m venv .venv
+#   .venv\Scripts\python -m pip install --no-deps -r requirements-data.txt
+# Why --no-deps: scdatatools 1.0.4's own metadata pins numpy~=1.21 and rich~=12.4, which do not install on
+# Python 3.12. These versions are the set that works (copied 2026-11-11 from the SC DataPack venv, which runs
+# the same scdatatools 1.0.4). We only use scdatatools' P4K reader and CryXmlB decoder, which are unpatched
+# PyPI code; the SC DataPack's patches (DataCore v6 parser etc.) are not needed here.
+scdatatools==1.0.4
+setuptools==82.0.1   # provides the distutils shim scdatatools imports (distutils left the stdlib in 3.12)
+zstandard==0.25.0
+pycryptodome==3.23.0
+numpy==2.4.4
+rich==14.3.4
+markdown_it_py==4.0.0
+mdurl==0.1.2
+pygments==2.20.0
+pyrsi==0.1.19
+python_nubia==0.2b5
+prompt_toolkit==3.0.52
+wcwidth==0.6.0
+prettytable==3.17.0
+termcolor==3.3.0
+typing_inspect==0.9.0
+typing_extensions==4.15.0
+mypy_extensions==1.1.0
+jellyfish==1.2.1
+pyparsing==3.3.2
+python_levenshtein==0.27.3
+levenshtein==0.27.3
+rapidfuzz==3.14.5
+fuzzywuzzy==0.18.0
+configparser==7.2.0
+colorama==0.4.6
+hexdump==3.3
+humanize==4.15.0
+fnvhash==0.2.1
+pyquaternion==0.9.9
+xxhash==3.6.0
+tqdm==4.67.3
+sentry_sdk==2.57.0
+packaging==26.0
+requests==2.33.1
+urllib3==2.6.3
+idna==3.11
+certifi==2026.2.25
+charset_normalizer==3.4.7
+beautifulsoup4==4.14.3
+soupsieve==2.8.3
+pillow==12.2.0
+cachetools==7.0.5
+# extract_vkb_boxes.py only (reads the VKB PDF forms; build-time, never shipped; AGPL-3.0):
+pymupdf==2.1
+pymupdf_layout==2.1
+pymupdf4llm==2.1

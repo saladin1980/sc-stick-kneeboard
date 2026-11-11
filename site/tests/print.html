@@ -1,0 +1,16 @@
+<!doctype html>
+<!-- TEST ONLY, never publish. Serve the Keybinding Mapping folder (python -m http.server --bind 127.0.0.1 8765)
+     and print this page to PDF (headless Edge --print-to-pdf). It loads the REAL index.html markup (its CSP
+     included), adds the fixture + a driver as local scripts, and loads Sal's export like a drop would. -->
+<html><head><meta charset="utf-8"><title>print harness</title></head><body>
+<script>
+(async () => {
+  let html = await (await fetch("../index.html")).text();
+  html = html.replace("<head>", '<head><base href="../">')
+             .replace("</body>", '<script src="tests/fixtures/example-export.js"><\/script><script src="tests/print-driver.js"><\/script></body>');
+  document.open();
+  document.write(html);
+  document.close();
+})();
+</script>
+</body></html>

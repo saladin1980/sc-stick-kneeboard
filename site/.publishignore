@@ -1,0 +1,6 @@
+# Not part of the published site. Everything else in this folder ships.
+# One definition: tests/site.test.cjs and tool/make_dist.py read this file; README.md points here.
+# art/vkb/ ships (VKB template art is free to use per VKB, Sal 2026-11-11); make_dist --without-vkb-art drops it.
+tests/
+README.md
+.publishignore

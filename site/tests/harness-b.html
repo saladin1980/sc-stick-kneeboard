@@ -1,0 +1,31 @@
+<!doctype html>
+<!-- TEST ONLY, never publish. Serve the Keybinding Mapping folder over a local server
+     (python -m http.server --bind 127.0.0.1 8765) and open /site/tests/harness.html.
+     The harness (no CSP) fetches the exports from the same local server and gives them to the
+     real page's file input; the page in the frame keeps its own CSP and does no fetching. -->
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>kneeboard harness</title>
+<style>html,body{margin:0;height:100%}iframe{border:0;width:100%;height:100%;display:block}</style>
+</head>
+<body>
+<iframe id="page" src="../index.html" title="Stick kneeboard"></iframe>
+<script>
+window.harnessLoad = async function () {
+  // Stage B: Sal's actionmaps export (a local test fixture copy) instead of the JD SVGs
+  const names = ["example-export.xml"];
+  const files = [new File([await (await fetch("fixtures/example-export.xml")).blob()], "layout_exported.xml", { type: "text/xml" })];
+  const doc = document.getElementById("page").contentDocument;
+  const input = doc.getElementById("file");
+  const dt = new DataTransfer();
+  files.forEach((f) => dt.items.add(f));
+  input.files = dt.files;
+  input.dispatchEvent(new Event("change", { bubbles: true }));
+  return names.length;
+};
+// ?auto: load the exports as soon as the page is ready (for headless screenshots)
+if (location.search.includes("auto")) {
+  document.getElementById("page").addEventListener("load", () => window.harnessLoad());
+}
+</script>
+</body>
+</html>

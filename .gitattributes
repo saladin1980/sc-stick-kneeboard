@@ -1,0 +1,5 @@
+# keep LF everywhere: the tests pin LF output (byte-identical SVG downloads)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.pdf binary

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Drop your Star Citizen keybind export and get one card per stick: your binds written onto the VKB stick template, every mode on each button.">
+<title>Stick kneeboard</title>
+<link rel="stylesheet" href="css/kneeboard.css">
+</head>
+<body>
+<header class="placard">
+  <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+  <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+  <h1>Stick kneeboard</h1>
+  <p>Your Star Citizen binds written onto the VKB stick template, one card per stick, plus your full keyboard. Every mode on each button.</p>
+</header>
+
+<main class="deck">
+  <section class="bay-col" aria-label="Load your keybind export">
+    <div class="bay" id="bay">
+      <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+      <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+      <span class="lamp" aria-hidden="true"></span>
+      <p class="bay-title">Drop your keybind export here</p>
+      <p class="bay-help" id="bay-help">The XML file the game writes when you export your controls. It's in your StarCitizen\LIVE\user\client\0\Controls\Mappings folder.</p>
+      <button type="button" class="btn btn-primary" id="choose" aria-describedby="bay-help">Choose file</button>
+      <input type="file" id="file" accept=".xml,text/xml,application/xml" hidden>
+    </div>
+
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+
+    <fieldset class="setting" id="default-stick" hidden>
+      <legend>Game defaults land on</legend>
+      <div class="switch">
+        <label><input type="radio" name="dstick" value="L"> Left stick</label>
+        <label><input type="radio" name="dstick" value="R"> Right stick</label>
+      </div>
+      <p class="hint">The game puts its own default binds on the stick that was connected first (js1). Turned your right stick on first? Switch it here.</p>
+    </fieldset>
+
+    <p class="privacy">Your file stays in this browser tab. The page makes no network requests and uploads nothing.</p>
+    <p class="aside">Have Joystick Diagrams exports instead? <a href="jd.html">Merge those here</a>.</p>
+    <div class="board-actions">
+      <button type="button" class="btn" id="print" hidden>Print cards</button>
+      <button type="button" class="btn btn-quiet" id="clear" hidden>Clear the board</button>
+    </div>
+  </section>
+
+  <section class="board" id="board" aria-label="Kneeboard cards">
+    <article class="card card-empty" id="empty">
+      <div class="clipped">
+      <span class="clip" aria-hidden="true"></span>
+      <div class="paper">
+        <h2>Three steps</h2>
+        <ol>
+          <li>In Star Citizen, open Options, Keybindings, and export your controls. The game writes an XML file.</li>
+          <li>Drop that file on the bay, or choose it.</li>
+          <li>Pick each stick's grip, then download its card. PNG is ready for Discord; SVG stays sharp when zoomed.</li>
+        </ol>
+        <p class="note">Pictures are VKB Gladiator templates (SCG and SCG Omni-Throttle, left and right). Other sticks get a full list instead of a picture.</p>
+      </div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Stick templates: VKB Gladiator fillable templates by VKB (vkbgaming.com), design by UntoldForce, free to use per VKB. Control names and defaults: Star Citizen's own game data. An unofficial fan tool, not affiliated with Cloud Imperium Games or VKB.</p>
+  <p class="tip"><a href="https://www.buymeacoffee.com/mbtech" target="_blank" rel="noopener noreferrer">Support the tool</a></p>
+</footer>
+
+<script src="data/sc-controls.js"></script>
+<script src="data/vkb-templates.js"></script>
+<script src="js/core.js"></script>
+<script src="js/modes.js"></script>
+<script src="js/resolve.js"></script>
+<script src="js/vkb.js"></script>
+<script src="js/keyboard.js"></script>
+<script src="js/kbd.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

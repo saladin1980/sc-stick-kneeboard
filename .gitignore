@@ -1,0 +1,21 @@
+# build output
+dist/
+__pycache__/
+*.pyc
+tool/.venv/
+.venv/
+
+# raw game data and generated reports: regenerate locally, never commit
+tool/oracle/*.decoded.xml
+tool/oracle/oracle-report.*
+*.p4k
+
+# personal / local material that must never be committed
+*VKBsim Gladiator EVO*.png
+/*VKBsim Gladiator EVO*.svg
+merged/
+Templates/
+site/tests/screens/
+site/tests/fixtures/sal-*
+*_exported.xml
+layout_*.xml
